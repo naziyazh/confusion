@@ -6,13 +6,15 @@ class DishDetail extends Component{
     renderDish(selectedDish){
         if (selectedDish != null){
             return(
-            <Card>
-                <CardImg width = "100%" src={selectedDish.image} alt={selectedDish.name}/>
-                <CardBody>
-                    <CardTitle>{selectedDish.name}</CardTitle>
-                    <CardText>{selectedDish.description}</CardText>
-                </CardBody>
-            </Card>
+            <div className = "container">
+                <Card>
+                    <CardImg width = "100%" src={selectedDish.image} alt={selectedDish.name}/>
+                    <CardBody>
+                        <CardTitle>{selectedDish.name}</CardTitle>
+                        <CardText>{selectedDish.description}</CardText>
+                    </CardBody>
+                </Card>
+            </div>
             );
         }else{
             return(<div/>);
@@ -26,7 +28,7 @@ class DishDetail extends Component{
                 return(
                     <li key = {comment.id}>
                         <p>{comment.comment}</p>
-                        <p>{comment.author}{comment.date}</p>
+                        <p>{comment.author}{new Intl.DateTimeFormat('en-UK', {year:'numeric', month:'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </li>
                 );
             });
