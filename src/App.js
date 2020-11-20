@@ -1,11 +1,10 @@
 import './App.css';
 import { Component } from 'react';
-import Main from './component/MainComponent.js';
+import Main from './components/MainComponent.js';
 
 class App extends Component{
-  
   render(){
-  return (
+  return(
     <div>
       <Main/>
     </div>
